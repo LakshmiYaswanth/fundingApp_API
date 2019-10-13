@@ -12,7 +12,8 @@ import com.google.gson.Gson;
 import com.revature.myfundingapp.exceptions.DBExeception;
 import com.revature.myfundingapp.exceptions.ServiceException;
 import com.revature.myfundingapp.model.Donor;
-import com.revature.myfundingapp.service.DonorloginService;
+import com.revature.myfundingapp.service.DonorService;
+
 
 /**
  * Servlet implementation class Donorloginservlet
@@ -23,7 +24,7 @@ public class Donorloginservlet extends HttpServlet {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		DonorloginService service = new DonorloginService();
+		DonorService service = new DonorService();
 		Donor donor = new Donor();
 		Donor donorObj = new Donor();
 		String name = request.getParameter("name");
@@ -32,8 +33,6 @@ public class Donorloginservlet extends HttpServlet {
 		donor.setPassword(password);
 		try {
 			donorObj = service.login(name,password);
-		} catch (DBExeception e) {
-			e.printStackTrace();
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

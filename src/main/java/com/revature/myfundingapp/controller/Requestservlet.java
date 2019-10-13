@@ -42,7 +42,7 @@ public class Requestservlet extends HttpServlet {
 		req.setAdminId(id);
 		try {
 			System.out.println(req);
-			rows = Service.RequestInsert(req);
+			rows = Service.requestInsert(req);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

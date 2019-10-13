@@ -64,6 +64,12 @@
   	<description></description>
   	<servlet-class>com.revature.myfundingapp.controller.RequestlistServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DonorFundingList</servlet-name>
+  	<display-name>DonorFundingList</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.myfundingapp.controller.DonorFundingList</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Adminloginservlet</servlet-name>
   	<url-pattern>/Adminloginservlet</url-pattern>
@@ -103,5 +109,9 @@
   <servlet-mapping>
   	<servlet-name>RequestlistServlet</servlet-name>
   	<url-pattern>/RequestlistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DonorFundingList</servlet-name>
+  	<url-pattern>/DonorFundingList</url-pattern>
   </servlet-mapping>
 </web-app>

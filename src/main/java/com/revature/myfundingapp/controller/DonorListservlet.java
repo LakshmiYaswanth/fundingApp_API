@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.revature.myfundingapp.exceptions.ServiceException;
 import com.revature.myfundingapp.model.Donor;
-import com.revature.myfundingapp.service.DonorloginService;
+import com.revature.myfundingapp.service.DonorService;
 
 public class DonorListservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public class DonorListservlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		DonorloginService service = new DonorloginService();
+		DonorService service = new DonorService();
 		List<Donor> list = null;
 		try {
 			list = service.list();

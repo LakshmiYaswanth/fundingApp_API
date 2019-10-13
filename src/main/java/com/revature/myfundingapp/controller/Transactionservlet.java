@@ -31,13 +31,13 @@ public class Transactionservlet extends HttpServlet {
 		try {
 			String s = request.getParameter("amountfunded");
 		    Integer AmountFunded = Integer.parseInt(s);
-		    String t = request.getParameter("request_Id");
+		    String t = request.getParameter("requestId");
 		    Integer Id = Integer.parseInt(t);
-		    String u = request.getParameter("donor_Id");
-		    Integer donor_Id = Integer.parseInt(u);
+		    String u = request.getParameter("donorId");
+		    Integer donorId = Integer.parseInt(u);
 		    trans.setRequestId(Id);
 		    trans.setAmountfunded(AmountFunded);
-		    trans.setDonorId(donor_Id);
+		    trans.setDonorId(donorId);
 		    Isinserted = transaction.insert(trans);
 			} catch (DBExeception e) {
 				e.printStackTrace();

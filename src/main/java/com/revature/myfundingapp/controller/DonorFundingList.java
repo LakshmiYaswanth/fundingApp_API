@@ -11,29 +11,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.revature.myfundingapp.model.Request;
-import com.revature.myfundingapp.service.RequestService;
+import com.revature.myfundingapp.exceptions.DBExeception;
+import com.revature.myfundingapp.model.Donor;
+import com.revature.myfundingapp.service.DonorService;
 
 
-public class Requesttypeservlet extends HttpServlet {
+
+/**
+ * Servlet implementation class DonorFundingList
+ */
+public class DonorFundingList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public Requesttypeservlet() {
+       
+    
+    public DonorFundingList() {
+        super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		RequestService appdao = new RequestService();
-		List<Request> req = new ArrayList<Request>();
-		String fundType = request.getParameter("Fund_type");
-	    req = appdao.FundType(fundType);
+		DonorService appdao = new DonorService();
+		List<Donor> req = new ArrayList<Donor>();
+		String name = request.getParameter("name");
+	    try {
+			req = appdao.fundingList(name);
+		} catch (DBExeception e) {
+			e.printStackTrace();
+		}
 		Gson gson = new Gson();
 		String json = gson.toJson(req);
 	    PrintWriter out = response.getWriter();
 		out.write(json);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
 	}
 
 	
-	
+

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.revature.myfundingapp.exceptions.ServiceException;
 import com.revature.myfundingapp.model.Admin;
-import com.revature.myfundingapp.service.Adminloginservice;
+import com.revature.myfundingapp.service.AdminService;
 
 public class Adminloginservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +20,7 @@ public class Adminloginservlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  Adminloginservice service= new Adminloginservice();
+		  AdminService service= new AdminService();
 			Admin admin = new Admin();
 			Admin AdminObj = new Admin();
 			String name = request.getParameter("name");
